@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+#modal {
+  background-color: rgba(0, 0, 0, 0.4392156863);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#modal form {
+  width: 500px;
+  border-radius: 30px;
+  padding: 70px 40px 40px 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 20px;
+  position: relative;
+}
+#modal form div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+#modal form div label {
+  font-family: Mulish;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 8.64px;
+  text-align: left;
+  color: #212121;
+}
+#modal form div input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: none;
+  background-color: #e6ecff;
+  font-family: Mulish;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: left;
+  color: #212121;
+}
+#modal form div input:focus {
+  outline: 1px solid #5B5CE2;
+}
+#modal form .submit {
+  width: 35%;
+  border-radius: 10px;
+  border: none;
+  background-color: #1BC58D;
+  padding: 8px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#modal form .submit:hover {
+  background-color: #169e70;
+}
+#modal form .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+#modal form .close img {
+  width: 35px;
+}
+@media only screen and (max-width: 570px) {
+  #modal form {
+    width: 90%;
+    padding: 50px 25px 25px 25px;
+  }
+  #modal form div input {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  #modal form div label {
+    font-size: 14px;
+  }
+  #modal form .submit {
+    width: 50%;
+    font-size: 14px;
+  }
+  #modal form .close {
+    top: 20px;
+    right: 25px;
+  }
+  #modal form .close img {
+    width: 30px;
+  }
+}
+
+.modal-close {
+  display: none !important;
+}
+
+.modal-open {
+  display: flex !important;
+}

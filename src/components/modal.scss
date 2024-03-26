@@ -1,0 +1,125 @@
+@use "../sass/abstracts" as *;
+
+#modal {
+  background-color: #00000070;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    width: 500px;
+    border-radius: 30px;
+    padding: 70px 40px 40px 40px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 20px;
+    position: relative;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+
+      label {
+        font-family: Mulish;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 8.64px;
+        text-align: left;
+        color: $bold-text;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 12px;
+        border: none;
+        background-color: #e6ecff;
+        font-family: Mulish;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        text-align: left;
+        color: $bold-text;
+
+        &:focus {
+          outline: 1px solid $main-color;
+        }
+      }
+    }
+
+    .submit {
+      width: 35%;
+      border-radius: 10px;
+      border: none;
+      background-color: $success;
+      padding: 8px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #169e70;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      img {
+        width: 35px;
+      }
+    }
+  }
+
+  @include media(570px) {
+    form {
+      width: 90%;
+      padding: 50px 25px 25px 25px;
+
+      div {
+        input {
+          padding: 10px 15px;
+          font-size: 14px;
+        }
+
+        label {
+          font-size: 14px;
+        }
+      }
+
+      .submit {
+        width: 50%;
+        font-size: 14px;
+      }
+
+      .close {
+        img {
+          width: 30px;
+        }
+
+        top: 20px;
+        right: 25px;
+      }
+    }
+  }
+}
+
+.modal-close {
+  display: none !important;
+}
+
+.modal-open {
+  display: flex !important;
+}

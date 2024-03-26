@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+#top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#top h1 {
+  line-height: 100%;
+}
+#top button {
+  border-radius: 10px;
+  border: none;
+  background-color: #1BC58D;
+  padding: 8px 20px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#top button:hover {
+  background-color: #169e70;
+}
+@media only screen and (max-width: 500px) {
+  #top h1 {
+    font-size: 24px;
+  }
+  #top button {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+}
