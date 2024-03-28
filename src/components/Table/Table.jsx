@@ -1,12 +1,13 @@
 import { useContext, useEffect } from "react";
-import { GlobalContext } from "../state/state-managment";
+import { GlobalContext } from "../../state/state-managment";
 import PropTypes from "prop-types";
 import "./table.scss";
-import deleteLogo from "../assets/delete.svg";
-import editLogo from "../assets/edit.svg";
+import deleteLogo from "../../assets/delete.svg";
+import editLogo from "../../assets/edit.svg";
 
 const Table = ({ openModal }) => {
-  const { students, getStudents, deleteStudent } = useContext(GlobalContext);
+  const { displayedStudents, getStudents, deleteStudent } =
+    useContext(GlobalContext);
   useEffect(() => {
     getStudents();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -19,7 +20,7 @@ const Table = ({ openModal }) => {
         <th>Group</th>
         <th>Actions</th>
       </tr>
-      {students.map((student, index) => (
+      {displayedStudents.map((student, index) => (
         <tr className="student" key={index}>
           <td className="firstname" data-cell="firstname">
             {student.firstname}

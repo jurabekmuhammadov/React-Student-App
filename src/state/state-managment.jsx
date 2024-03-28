@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
-import { useReducer, createContext } from "react";
+import { useReducer, createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const initialState = {
   students: [],
+  loading: false,
+  error: null,
 };
 export const GlobalContext = createContext(initialState);
 
@@ -12,26 +14,35 @@ const globalReducer = (state, action) => {
   switch (action.type) {
     case "ERROR":
       return {
-        students: [],
+        ...state,
         loading: false,
-        eroor: "Something went wrong, go to console",
+        error: "Something went wrong, please check the console for details",
       };
     case "PENDING":
       return {
+        ...state,
         loading: true,
-        students: [],
         error: null,
       };
     case "SET_STUDENTS":
-      return { ...state, students: action.payload };
+      return {
+        ...state,
+        students: action.payload,
+        loading: false, // Set loading to false when data is loaded
+      };
     case "ADD_STUDENT":
-      return { ...state, students: [...state.students, action.payload] };
+      return {
+        ...state,
+        students: [...state.students, action.payload],
+        loading: false,
+      };
     case "UPDATE_STUDENT":
       return {
         ...state,
-        students: state.students.map((student) => {
-          return student.id == action.payload.id ? action.payload : student;
-        }),
+        students: state.students.map((student) =>
+          student.id === action.payload.id ? action.payload : student
+        ),
+        loading: false,
       };
     case "DELETE_STUDENT":
       return {
@@ -39,6 +50,7 @@ const globalReducer = (state, action) => {
         students: state.students.filter(
           (student) => student.id !== action.payload
         ),
+        loading: false,
       };
     default:
       return state;
@@ -47,6 +59,17 @@ const globalReducer = (state, action) => {
 
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(globalReducer, initialState);
+  const [page, setPage] = useState(1);
+  const [filterValue, setFilterValue] = useState("all");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const perPage = 6;
+  const [totalPages, setTotalPages] = useState(
+    Math.ceil(state.students.length / perPage)
+  );
+  const multiplePages = totalPages > 1;
+  const startIndex = (page - 1) * perPage;
+  const endIndex = startIndex + perPage;
 
   const getStudents = async () => {
     dispatch({ type: "PENDING" });
@@ -55,7 +78,6 @@ export const GlobalProvider = ({ children }) => {
       .then((res) => {
         dispatch({ type: "SET_STUDENTS", payload: res.data });
       })
-      // eslint-disable-next-line no-unused-vars
       .catch((err) => {
         dispatch({ type: "ERROR" });
       });
@@ -71,7 +93,6 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: "ERROR" });
       });
   };
-
   const updateStudent = async (student) => {
     dispatch({ type: "PENDING" });
     await axios
@@ -83,7 +104,6 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: "ERROR" });
       });
   };
-
   const deleteStudent = async (id) => {
     dispatch({ type: "PENDING" });
     const confirmDelete = window.confirm(
@@ -103,6 +123,40 @@ export const GlobalProvider = ({ children }) => {
     }
     getStudents();
   };
+  const filter = (e) => {
+    setPage(1);
+    setFilterValue(e.target.value);
+  };
+  const handlePage = (type) => {
+    if (type === "prev" && page > 1) {
+      setPage(page - 1);
+    } else if (type === "next" && page < totalPages) {
+      setPage(page + 1);
+    }
+  };
+  const search = (e) => {
+    setSearchValue(e.target.value.toLowerCase().trim());
+  };
+
+  useEffect(() => {
+    const filtered =
+      filterValue !== "all"
+        ? state.students.filter((student) => student.group === filterValue)
+        : state.students;
+    const searchFiltered = filtered.filter(
+      (student) =>
+        student.firstname.toLowerCase().includes(searchValue) ||
+        student.lastname.toLowerCase().includes(searchValue)
+    );
+    setFilteredProducts(searchFiltered);
+    const totalFilteredPages = Math.ceil(
+      filtered.length && searchFiltered.length / perPage
+    );
+    setPage(1);
+    setTotalPages(totalFilteredPages);
+  }, [state.students, filterValue, searchValue]);
+
+  const displayedStudents = filteredProducts.slice(startIndex, endIndex);
 
   return (
     <GlobalContext.Provider
@@ -112,6 +166,15 @@ export const GlobalProvider = ({ children }) => {
         addStudent,
         updateStudent,
         deleteStudent,
+        handlePage,
+        multiplePages,
+        page,
+        totalPages,
+        setPage,
+        displayedStudents,
+        filter,
+        search,
+        loading: state.loading,
       }}
     >
       {children}

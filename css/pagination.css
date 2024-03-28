@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.pagination button {
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  color: white;
+  background-color: #5B5CE2;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  background-color: #9191e7;
+  cursor: not-allowed;
+}
+.pagination ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.pagination ul li {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #9191e7;
+  font-family: Mulish;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 10.08px;
+  text-align: left;
+  color: white;
+}
+.pagination ul .active-page {
+  background-color: #3b3b62;
+}
+@media only screen and (max-width: 500px) {
+  .pagination {
+    gap: 15px;
+  }
+  .pagination button {
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 120%;
+  }
+  .pagination ul {
+    gap: 10px;
+  }
+  .pagination ul li {
+    padding: 8px;
+    font-size: 14px;
+  }
+}

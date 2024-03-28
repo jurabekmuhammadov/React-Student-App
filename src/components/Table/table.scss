@@ -1,4 +1,4 @@
-@use "../sass/abstracts" as *;
+@use "../../sass/abstracts" as *;
 
 #student-list {
   border-collapse: collapse;
@@ -6,6 +6,7 @@
   background-color: #fff;
   border: 1px solid #dbdbe3;
   margin: 0 auto;
+  margin-top: 40px;
 
   .titles {
     border-bottom: 1px solid #dbdbe3;
@@ -132,6 +133,8 @@
   }
 
   @include media(420px) {
+    margin-top: 30px;
+
     .student {
       td {
         padding: 5px 15px;

@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { GlobalContext } from "../state/state-managment";
+import { GlobalContext } from "../../state/state-managment";
 import PropTypes from "prop-types";
 import "./modal.scss";
-import closeLogo from "../assets/close.svg";
+import closeLogo from "../../assets/close.svg";
 const Modal = ({ selectedStudent, isModalOpen, closeModal }) => {
   const [student, setStudent] = useState({
     firstname: "",
@@ -19,8 +19,7 @@ const Modal = ({ selectedStudent, isModalOpen, closeModal }) => {
     }
   }, [selectedStudent]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (student.id) {
       updateStudent(student);
     } else {
@@ -35,7 +34,7 @@ const Modal = ({ selectedStudent, isModalOpen, closeModal }) => {
   };
 
   const handleChange = (e) => {
-    setStudent({ ...student, [e.target.name]: e.target.value });
+    setStudent({ ...student, [e.target.name]: e.target.value.trim() });
   };
   return (
     <div id="modal" className={`${isModalOpen ? "modal-open" : "modal-close"}`}>

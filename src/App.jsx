@@ -1,4 +1,4 @@
-import Students from "./components/Students";
+import Students from "./components/Students/Students";
 
 const App = () => {
   return (

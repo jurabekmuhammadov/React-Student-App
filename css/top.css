@@ -1,31 +1,72 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 #top {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 #top h1 {
-  line-height: 100%;
+  font-family: "Quicksand", sans-serif;
 }
-#top button {
-  border-radius: 10px;
-  border: none;
-  background-color: #1BC58D;
-  padding: 8px 20px;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
+#top .top__actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
-#top button:hover {
-  background-color: #169e70;
-}
-@media only screen and (max-width: 500px) {
-  #top h1 {
-    font-size: 24px;
+@media only screen and (max-width: 860px) {
+  #top {
+    flex-direction: column;
+    gap: 20px;
   }
-  #top button {
-    padding: 7px 10px;
+  #top .top__actions {
+    width: 100%;
+    gap: 10px;
+  }
+  #top .top__actions #filter {
+    width: 25%;
+  }
+  #top .top__actions #search {
+    width: 50%;
+  }
+  #top .top__actions #add {
+    width: 25%;
+    padding: 8px 0;
+  }
+}
+@media only screen and (max-width: 420px) {
+  #top {
+    flex-direction: column;
+    gap: 20px;
+  }
+  #top h1 {
+    font-size: 26px;
+  }
+  #top .top__actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  #top .top__actions #filter {
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+  }
+  #top .top__actions #search {
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  #top .top__actions #add {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
   }
 }
