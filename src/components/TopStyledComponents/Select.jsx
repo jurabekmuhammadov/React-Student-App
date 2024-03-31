@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Select = styled.select`
   border: 2px solid transparent;
-  width: 10em;
+  width: 20%;
   height: 2.5em;
-  
+
   outline: none;
   overflow: hidden;
   background-color: #f3f3f3;

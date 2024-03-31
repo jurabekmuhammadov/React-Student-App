@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import avatar from "../../assets/avatar.webp";
 const Header = () => {
   const { userFromServer } = useAuth();
   if (
@@ -16,7 +15,7 @@ const Header = () => {
           <div className="profile">
             <Link to="/profile" title={"View profile"}>
               {userFromServer.username}
-              <img src={avatar} alt="" />
+              <img src={userFromServer.avatar} alt="" />
             </Link>
           </div>
         </div>

@@ -10,13 +10,9 @@ export const Button = styled.button`
       cursor: pointer;
       transition: 0.3s;
       text-align: center;
-
+      width: 10%;
       &:hover {
         background-color: #169e70;
       }
-      // @media(max-width: 500px) {
-      //   padding: 7px 10px;
-      //   font-size: 14px;
-      // }
     }
 `;

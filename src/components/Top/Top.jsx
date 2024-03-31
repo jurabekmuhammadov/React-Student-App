@@ -10,7 +10,6 @@ const Top = ({ setIsModalOpen }) => {
 
   return (
     <div id="top">
-      <h1>Student App</h1>
       <div className="top__actions">
         <Select name="filter" id="filter" onChange={filter}>
           <option value="all" defaultValue>
@@ -26,10 +25,10 @@ const Top = ({ setIsModalOpen }) => {
           onChange={search}
           placeholder="Search students..."
         />
-        <Button id="add" type="button" onClick={() => setIsModalOpen(true)}>
-          + Add
-        </Button>
       </div>
+      <Button id="add" type="button" onClick={() => setIsModalOpen(true)}>
+        + Add
+      </Button>
     </div>
   );
 };

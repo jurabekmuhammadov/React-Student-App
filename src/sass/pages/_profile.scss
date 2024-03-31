@@ -1,5 +1,54 @@
+@use "../abstracts" as *;
+
 #profile {
+
   .profile__container {
+    .top {
+      padding: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .back,
+      .logout {
+        border: 1px solid #bbbbbb;
+        padding: 5px 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+        color: black;
+
+        span {
+          color: black;
+        }
+
+        &:hover {
+          background-color: #ececec;
+        }
+
+        span {
+          font-weight: 600;
+        }
+      }
+
+      .back {
+        gap: 0;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .logout {
+        flex-direction: row-reverse;
+      }
+    }
+
     .banner {
       width: 100%;
       height: 250px;
@@ -132,6 +181,147 @@
           }
         }
       }
+    }
+  }
+
+  @include media(768px) {
+    .profile__container {
+      padding: 0;
+
+      .top {
+        padding: 15px 20px;
+      }
+
+      .banner {
+        height: 200px;
+
+
+        .avatar {
+          padding: 0 20px;
+
+          .left {
+            gap: 10px;
+
+            img {
+              width: 120px;
+              height: 120px;
+            }
+
+            h1 {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+
+      .details {
+        padding: 0 20px;
+
+        form {
+          div {
+            padding-left: 0;
+            gap: 20px;
+
+            input {
+              width: 80%;
+            }
+
+            label {
+              width: 20%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media(420px) {
+    .profile__container {
+      .top {
+
+        .back,
+        .logout {
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .back {
+
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+
+        .logout {
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .banner {
+        height: 170px;
+
+        .bgc {
+          height: 75%;
+        }
+
+        .avatar {
+          .left {
+            img {
+              width: 90px;
+              height: 90px;
+            }
+
+            h1 {
+              font-size: 18px;
+            }
+          }
+
+          .right {
+            gap: 10px;
+
+            .display-btn {
+              gap: 3px;
+
+              img {
+                width: 18px;
+                height: 18px;
+              }
+
+              span {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .details {
+        form {
+          div {
+            padding: 10px 0;
+            flex-direction: column;
+            align-items: start;
+            gap: 4px;
+
+            label {
+              font-size: 14px;
+            }
+
+            input {
+              width: 100%;
+              padding: 7px 10px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
     }
   }
 }

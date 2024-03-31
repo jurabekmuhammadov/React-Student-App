@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 #login {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -148,6 +150,145 @@
       img {
         height: 100%;
         width: 100%;
+      }
+    }
+  }
+
+  @include media(768px) {
+    .login__container {
+      flex-direction: column;
+
+      .left {
+        width: 100%;
+
+        form {
+          align-items: center;
+          width: 100%;
+
+          .title {
+            text-align: center;
+
+            h1 {
+              margin-bottom: 10px;
+            }
+          }
+
+          div {
+            width: 100%;
+          }
+
+          #submit {
+            width: 100%;
+          }
+        }
+      }
+
+      .right {
+        width: 80%;
+      }
+    }
+  }
+
+  @include media(460px) {
+    .login__container {
+      .left {
+        gap: 40px;
+
+        form {
+          gap: 15px;
+
+          .title {
+
+            h1 {
+              font-size: 28px;
+              margin-bottom: 5px;
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+
+          .username,
+          .password {
+            label {
+              font-size: 14px;
+            }
+
+            input {
+              font-size: 14px;
+
+              &::placeholder {
+                font-size: 14px;
+              }
+            }
+          }
+
+          .agree {
+            label {
+              font-size: 14px;
+            }
+          }
+
+          #submit {
+            font-size: 14px;
+          }
+        }
+
+        .line {
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .bottom {
+          .accounts {
+            width: 100%;
+            gap: 10px;
+
+            a {
+              font-size: 14px;
+              width: 50%;
+              gap: 5px;
+
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  @include media(400px) {
+    .login__container {
+      .left {
+        gap: 30px;
+
+        .bottom {
+          .accounts {
+            flex-direction: column;
+
+            a {
+              width: 100%;
+              padding: 8px 10px;
+            }
+          }
+        }
+      }
+
+      .right {
+        width: 95%;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }

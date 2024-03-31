@@ -48,15 +48,15 @@ const Profile = () => {
     return (
       <div id="profile">
         <div className="container profile__container">
-          <div className="back">
-            <Link to={"/"}>
+          <div className="top">
+            <Link to={"/"} className="back">
               {" "}
               <img src={arrowLeft} alt="" />
-              Back
+              <span>Back</span>
             </Link>
-            <button onClick={logout}>
+            <button onClick={logout} className="logout">
               <img src={logoutIcon} alt="" />
-              Log out
+              <span>Log out</span>
             </button>
           </div>
           <div className="banner">

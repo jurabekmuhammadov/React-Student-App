@@ -182,5 +182,11 @@
       "group": "Vue N17"
     }
   ],
-  "user": {}
+  "user": {
+    "username": "jurabek",
+    "password": "jurabek",
+    "avatar": "https://fashionelite.com/wp-content/uploads/2016/09/1331144712_IMG_paris1.jpg",
+    "isSignedUp": true,
+    "isLoggedIn": true
+  }
 }
