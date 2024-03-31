@@ -76,3 +76,291 @@ select {
   margin: 0 auto;
   max-width: 1300px;
 }
+
+header {
+  height: 70px;
+}
+header .header__container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .header__container .profile a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}
+header .header__container .profile a:hover {
+  text-decoration: underline;
+}
+header .header__container .profile a img {
+  width: 40px;
+  height: 40px;
+}
+
+#sign-up {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#sign-up .signup__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+#sign-up .signup__container .left {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  width: 40%;
+}
+#sign-up .signup__container .left form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+#sign-up .signup__container .left form h1 {
+  margin-bottom: 40px;
+  font-size: 35px;
+}
+#sign-up .signup__container .left form .username,
+#sign-up .signup__container .left form .password {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+#sign-up .signup__container .left form .username label,
+#sign-up .signup__container .left form .password label {
+  font-weight: 700;
+}
+#sign-up .signup__container .left form .username input,
+#sign-up .signup__container .left form .password input {
+  border-radius: 7px;
+  border: 1px solid #bbbbbb;
+  padding: 8px 10px;
+  outline: none;
+}
+#sign-up .signup__container .left form .username input::-moz-placeholder, #sign-up .signup__container .left form .password input::-moz-placeholder {
+  font-size: 14px;
+  color: #adadad;
+}
+#sign-up .signup__container .left form .username input::placeholder,
+#sign-up .signup__container .left form .password input::placeholder {
+  font-size: 14px;
+  color: #adadad;
+}
+#sign-up .signup__container .left form .username input:focus,
+#sign-up .signup__container .left form .password input:focus {
+  border: 1px solid black;
+}
+#sign-up .signup__container .left form .agree {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#sign-up .signup__container .left form .agree label {
+  font-weight: 700;
+}
+#sign-up .signup__container .left form #submit {
+  margin-top: 20px;
+  border-radius: 7px;
+  border: 1px solid black;
+  padding: 8px 10px;
+  cursor: pointer;
+  background-color: #D2D4FF;
+  color: black;
+  font-weight: 600;
+  transition: 0.4s;
+}
+#sign-up .signup__container .left form #submit:hover {
+  background-color: #bdc0ff;
+}
+#sign-up .signup__container .left .line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#sign-up .signup__container .left .line div {
+  width: 45%;
+  background-color: #d6d6d6;
+  height: 1px;
+}
+#sign-up .signup__container .left .bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+#sign-up .signup__container .left .bottom .accounts {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#sign-up .signup__container .left .bottom .accounts a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid #bbbbbb;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  transition: 0.2s;
+}
+#sign-up .signup__container .left .bottom .accounts a:hover {
+  background-color: #efefef;
+}
+#sign-up .signup__container .left .bottom p {
+  font-weight: 600;
+}
+#sign-up .signup__container .left .bottom p a {
+  font-weight: 700;
+  color: #0F3DDE;
+}
+#sign-up .signup__container .left .bottom p a:hover {
+  text-decoration: underline;
+}
+#sign-up .signup__container .right img {
+  height: 100%;
+  width: 100%;
+}
+
+#login {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#login .login__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+#login .login__container .left {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  width: 40%;
+}
+#login .login__container .left form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+#login .login__container .left form .title {
+  margin-bottom: 18px;
+}
+#login .login__container .left form .title h1 {
+  font-size: 35px;
+}
+#login .login__container .left form .title p {
+  font-weight: 600;
+}
+#login .login__container .left form .username,
+#login .login__container .left form .password {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+#login .login__container .left form .username label,
+#login .login__container .left form .password label {
+  font-weight: 700;
+}
+#login .login__container .left form .username input,
+#login .login__container .left form .password input {
+  border-radius: 7px;
+  border: 1px solid #bbbbbb;
+  padding: 8px 10px;
+  outline: none;
+}
+#login .login__container .left form .username input::-moz-placeholder, #login .login__container .left form .password input::-moz-placeholder {
+  font-size: 14px;
+  color: #adadad;
+}
+#login .login__container .left form .username input::placeholder,
+#login .login__container .left form .password input::placeholder {
+  font-size: 14px;
+  color: #adadad;
+}
+#login .login__container .left form .username input:focus,
+#login .login__container .left form .password input:focus {
+  border: 1px solid black;
+}
+#login .login__container .left form .agree {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#login .login__container .left form .agree label {
+  font-weight: 700;
+}
+#login .login__container .left form #submit {
+  margin-top: 20px;
+  border-radius: 7px;
+  border: 1px solid black;
+  padding: 8px 10px;
+  cursor: pointer;
+  background-color: #D2D4FF;
+  color: black;
+  font-weight: 600;
+  transition: 0.4s;
+}
+#login .login__container .left form #submit:hover {
+  background-color: #bdc0ff;
+}
+#login .login__container .left .line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#login .login__container .left .line div {
+  width: 45%;
+  background-color: #d6d6d6;
+  height: 1px;
+}
+#login .login__container .left .bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+#login .login__container .left .bottom .accounts {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#login .login__container .left .bottom .accounts a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid #bbbbbb;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  transition: 0.2s;
+}
+#login .login__container .left .bottom .accounts a:hover {
+  background-color: #efefef;
+}
+#login .login__container .left .bottom p {
+  font-weight: 600;
+}
+#login .login__container .left .bottom p a {
+  font-weight: 700;
+  color: #0F3DDE;
+}
+#login .login__container .left .bottom p a:hover {
+  text-decoration: underline;
+}
+#login .login__container .right img {
+  height: 100%;
+  width: 100%;
+}

@@ -181,5 +181,9 @@
       "lastname": "Cruz",
       "group": "Vue N17"
     }
-  ]
+  ],
+  "user": {
+    "username": "harry",
+    "password": "kane"
+  }
 }

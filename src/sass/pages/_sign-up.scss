@@ -1,0 +1,147 @@
+#sign-up {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .signup__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 65px;
+      width: 40%;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        h1 {
+          margin-bottom: 40px;
+          font-size: 35px;
+        }
+
+        .username,
+        .password {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+
+          label {
+            font-weight: 700;
+          }
+
+          input {
+            border-radius: 7px;
+            border: 1px solid #bbbbbb;
+            padding: 8px 10px;
+            outline: none;
+
+            &::placeholder {
+              font-size: 14px;
+              color: #adadad;
+            }
+
+            &:focus {
+              border: 1px solid black;
+            }
+          }
+        }
+
+        .agree {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          label {
+            font-weight: 700;
+          }
+        }
+
+        #submit {
+          margin-top: 20px;
+          border-radius: 7px;
+          border: 1px solid black;
+          padding: 8px 10px;
+          cursor: pointer;
+          background-color: #D2D4FF;
+          color: black;
+          font-weight: 600;
+          transition: 0.4s;
+
+          &:hover {
+            background-color: #bdc0ff;
+          }
+        }
+      }
+
+      .line {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        div {
+          width: 45%;
+          background-color: #d6d6d6;
+          height: 1px;
+
+        }
+      }
+
+      .bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+
+        .accounts {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 10px;
+            padding: 5px 10px;
+            border: 1px solid #bbbbbb;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            transition: 0.2s;
+
+            &:hover {
+              background-color: #efefef;
+            }
+          }
+        }
+
+        p {
+          font-weight: 600;
+
+          a {
+            font-weight: 700;
+            color: #0F3DDE;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
