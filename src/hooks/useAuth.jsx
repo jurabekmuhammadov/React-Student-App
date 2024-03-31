@@ -22,8 +22,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (userLogin) => {
     if (
-      userLogin.username === userFromServer.username &&
-      userLogin.password === userFromServer.password
+      userLogin.username.toLowerCase() ===
+        userFromServer.username.toLowerCase() &&
+      userLogin.password.toLowerCase() === userFromServer.password.toLowerCase()
     ) {
       await axios
         .put("http://localhost:3000/user", {

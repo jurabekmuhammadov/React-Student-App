@@ -30,7 +30,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     setUser({
                       ...user,
-                      username: e.target.value.trim().toLowerCase(),
+                      username: e.target.value.trim(),
                     })
                   }
                 />
@@ -46,7 +46,7 @@ const SignUp = () => {
                   onChange={(e) =>
                     setUser({
                       ...user,
-                      password: e.target.value.trim().toLowerCase(),
+                      password: e.target.value.trim(),
                     })
                   }
                 />
