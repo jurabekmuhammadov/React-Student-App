@@ -3,7 +3,11 @@ import { useAuth } from "../../hooks/useAuth";
 import avatar from "../../assets/avatar.webp";
 const Header = () => {
   const { userFromServer } = useAuth();
-  if (userFromServer.username && userFromServer.password) {
+  if (
+    userFromServer.username &&
+    userFromServer.password &&
+    userFromServer.isLoggedIn === true
+  ) {
     return (
       <header>
         <div className="container header__container">

@@ -11,9 +11,8 @@ const App = () => {
     <BrowserRouter>
       <AuthProvider>
         <div>
-          <Header />
+          {location.href !== "http://localhost:5173/login" ? <Header /> : null}
           <Routes>
-            
             <Route path="/" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
