@@ -186,6 +186,7 @@
     "username": "harry",
     "password": "kane",
     "avatar": "/src/assets/avatar.webp",
-    "isSignedUp": true
+    "isSignedUp": true,
+    "isLoggedIn": true
   }
 }

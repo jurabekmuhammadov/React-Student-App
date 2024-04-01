@@ -89,7 +89,7 @@ const SignUp = () => {
                 </Link>
               </div>
               <p>
-                Have an account? <Link to={"/login"}>Sign in</Link>
+                Have an account? <Link to={"/"}>Sign in</Link>
               </p>
             </div>
           </div>
