@@ -2,7 +2,6 @@
 import axios from "axios";
 import { useReducer, createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { toast } from "react-toastify";
 
 const initialState = {
   students: [],
@@ -29,7 +28,7 @@ const globalReducer = (state, action) => {
       return {
         ...state,
         students: action.payload,
-        loading: false, // Set loading to false when data is loaded
+        loading: false,
       };
     case "ADD_STUDENT":
       return {

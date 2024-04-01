@@ -359,6 +359,7 @@ header .header__container .profile a img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row-reverse;
   gap: 50px;
 }
 #login .login__container .left {

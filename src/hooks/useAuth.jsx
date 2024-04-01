@@ -132,6 +132,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         userFromServer,
         submitEditChanges,
+        notifyUpdatedDetails
       }}
     >
       {children}
