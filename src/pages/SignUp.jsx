@@ -102,9 +102,11 @@ const SignUp = () => {
   } else if (
     userFromServer.username &&
     userFromServer.password &&
-    userFromServer.isLoggedIn &&
-    userFromServer.isSignedUp
+    !userFromServer.isSignedUp &&
+    userFromServer.isLoggedIn
   ) {
+    return <Navigate to="/login" />;
+  } else {
     return <Navigate to="/home" />;
   }
 };

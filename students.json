@@ -182,5 +182,10 @@
       "group": "Vue N17"
     }
   ],
-  "user": {}
+  "user": {
+    "username": "harry",
+    "password": "kane",
+    "avatar": "/src/assets/avatar.webp",
+    "isSignedUp": true
+  }
 }

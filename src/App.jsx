@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProtectedComp from "./components/ProtectedComp/ProtectedComp";
 const App = () => {
   return (
     <BrowserRouter>
@@ -17,8 +18,22 @@ const App = () => {
           <Routes>
             <Route path="/" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/home"
+              element={
+                <ProtectedComp>
+                  <Home />
+                </ProtectedComp>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedComp>
+                  <Profile />
+                </ProtectedComp>
+              }
+            />
           </Routes>
         </div>
       </AuthProvider>
