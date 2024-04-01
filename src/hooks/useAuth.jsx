@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import defaultAvatar from "../assets/avatar.webp";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext(null);
 
@@ -13,6 +14,15 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isNewUserAdded, setIsNewUserAdded] = useState(false);
   const [userFromServer, setUserFromServer] = useState({});
+
+  const notifyLoggedIn = () => toast.success("You are successfully logged in!");
+  const notifySignedUp = () => toast.success("You are successfully signed up!");
+  const notifyErrorSignedUp = (error) => toast.success(error);
+  const notifyErrorLoggedIn = () => toast.error("No user found!");
+  const notifyUpdatedDetails = () => toast.success("Details updated!");
+  const notifyErrorUpdatedDetails = (error) => toast.success(error);
+  const notifyLoggedOut = () => toast.warning("You are logged out!");
+  const notifyErrorLoggedOut = (error) => toast.success(error);
 
   const signUp = async (data) => {
     setUser(data);
@@ -26,6 +36,7 @@ export const AuthProvider = ({ children }) => {
         userFromServer.username.toLowerCase() &&
       userLogin.password.toLowerCase() === userFromServer.password.toLowerCase()
     ) {
+      notifyLoggedIn();
       await axios
         .put("http://localhost:3000/user", {
           ...userFromServer,
@@ -36,7 +47,7 @@ export const AuthProvider = ({ children }) => {
         });
       navigate("/home");
     } else {
-      console.log("User is not defined");
+      notifyErrorLoggedIn();
     }
   };
 
@@ -48,17 +59,25 @@ export const AuthProvider = ({ children }) => {
           avatar: defaultAvatar,
           isSignedUp: true,
         })
-        .catch((err) => {
-          console.log(err.message);
+        .then(() => {
+          notifySignedUp();
+        })
+        .catch((error) => {
+          notifyErrorSignedUp(error);
         });
       setIsNewUserAdded(false);
     }
   };
 
   const logout = async () => {
-    await axios.put("http://localhost:3000/user", {}).catch((err) => {
-      console.log(err.message);
-    });
+    await axios
+      .put("http://localhost:3000/user", {})
+      .then(() => {
+        notifyLoggedOut();
+      })
+      .catch((error) => {
+        notifyErrorLoggedOut(error);
+      });
     navigate("/");
   };
 
@@ -79,8 +98,9 @@ export const AuthProvider = ({ children }) => {
         });
 
       setIsDisabled(true);
+      notifyUpdatedDetails();
     } catch (error) {
-      console.error("Error updating user data:", error.message);
+      notifyErrorUpdatedDetails(error);
     }
   };
 

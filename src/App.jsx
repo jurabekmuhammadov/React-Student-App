@@ -6,6 +6,8 @@ import { AuthProvider } from "./hooks/useAuth";
 import Login from "./pages/Login";
 import Header from "./components/Header/Header";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <BrowserRouter>
@@ -20,6 +22,18 @@ const App = () => {
           </Routes>
         </div>
       </AuthProvider>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </BrowserRouter>
   );
 };
