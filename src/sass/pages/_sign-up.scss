@@ -82,6 +82,7 @@
 
       .line {
         display: flex;
+        justify-content: center;
         align-items: center;
         gap: 10px;
 
@@ -89,7 +90,6 @@
           width: 45%;
           background-color: #d6d6d6;
           height: 1px;
-
         }
       }
 

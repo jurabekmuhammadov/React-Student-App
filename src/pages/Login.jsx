@@ -85,17 +85,25 @@ const Login = () => {
           </div>
           <div className="bottom">
             <div className="accounts">
-              <Link className="google" to="/">
-                <img src={googleLogo} alt="google" />
+              <Link
+                className="google"
+                to="https://www.google.com/account"
+                target="_blank"
+              >
+                <img src={googleLogo} alt="" />
                 <span>Sign in with Google</span>
               </Link>
-              <Link className="apple" to="/">
+              <Link
+                className="apple"
+                to="https://support.apple.com/apple-id"
+                target="_blank"
+              >
                 <img src={appleLogo} alt="apple" />
                 <span>Sign in with Apple</span>
               </Link>
             </div>
             <p>
-              Don`t have an account? <Link to={"/"}>Sign up</Link>
+              Don`t have an account? <Link to={""}>Sign up</Link>
             </p>
           </div>
         </div>

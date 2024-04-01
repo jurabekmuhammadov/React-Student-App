@@ -208,6 +208,7 @@ header .header__container .profile a img {
 }
 #sign-up .signup__container .left .line {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
 }
@@ -437,6 +438,7 @@ header .header__container .profile a img {
 #login .login__container .left .line {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 #login .login__container .left .line div {

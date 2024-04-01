@@ -91,13 +91,13 @@
       .line {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
 
         div {
           width: 45%;
           background-color: #d6d6d6;
           height: 1px;
-
         }
       }
 
