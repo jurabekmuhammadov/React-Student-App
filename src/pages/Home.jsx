@@ -3,13 +3,23 @@ import Students from "../components/Students/Students";
 import { useAuth } from "../hooks/useAuth";
 const Home = () => {
   const { userFromServer } = useAuth();
-  if (userFromServer.username && userFromServer.password) {
+  if (
+    userFromServer.username &&
+    userFromServer.password &&
+    userFromServer.isSignedUp &&
+    userFromServer.isLoggedIn
+  ) {
     return (
       <>
         <Students />
       </>
     );
-  } else if (!userFromServer.username && !userFromServer.password) {
+  } else if (
+    !userFromServer.username &&
+    !userFromServer.password &&
+    !userFromServer.isSignedUp &&
+    !userFromServer.isLoggedIn
+  ) {
     return <Navigate to="/" />;
   }
 };

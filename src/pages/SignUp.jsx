@@ -12,7 +12,12 @@ const SignUp = () => {
     signUp(user);
     setUser({ username: "", password: "" });
   };
-  if (!userFromServer.username && !userFromServer.password) {
+  if (
+    !userFromServer.username &&
+    !userFromServer.password &&
+    !userFromServer.isSignedUp &&
+    !userFromServer.isLoggedIn
+  ) {
     return (
       <div id="sign-up">
         <div className="container signup__container">
@@ -94,7 +99,12 @@ const SignUp = () => {
         </div>
       </div>
     );
-  } else if (userFromServer.username && userFromServer.password) {
+  } else if (
+    userFromServer.username &&
+    userFromServer.password &&
+    userFromServer.isLoggedIn &&
+    userFromServer.isSignedUp
+  ) {
     return <Navigate to="/home" />;
   }
 };
