@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 const initialState = {
   students: [],
+  teachers: [],
   loading: false,
   error: null,
 };
@@ -49,6 +50,34 @@ const globalReducer = (state, action) => {
         ...state,
         students: state.students.filter(
           (student) => student.id !== action.payload
+        ),
+        loading: false,
+      };
+    case "SET_TEACHERS":
+      return {
+        ...state,
+        teachers: action.payload,
+        loading: false,
+      };
+    case "ADD_TEACHER":
+      return {
+        ...state,
+        teachers: [...state.students, action.payload],
+        loading: false,
+      };
+    case "UPDATE_TEACHER":
+      return {
+        ...state,
+        teachers: state.teachers.map((teacher) =>
+          teacher.id === action.payload.id ? action.payload : teacher
+        ),
+        loading: false,
+      };
+    case "DELETE_TEACHER":
+      return {
+        ...state,
+        teachers: state.teachers.filter(
+          (teacher) => teacher.id !== action.payload
         ),
         loading: false,
       };
@@ -123,6 +152,61 @@ export const GlobalProvider = ({ children }) => {
     }
     getStudents();
   };
+
+  const getTeachers = async () => {
+    dispatch({ type: "PENDING" });
+    await axios
+      .get("http://localhost:3000/teachers")
+      .then((res) => {
+        dispatch({ type: "SET_TEACHERS", payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: "ERROR" });
+      });
+  };
+
+  const adTeacher = async (teacher) => {
+    dispatch({ type: "PENDING" });
+    await axios
+      .post("http://localhost:3000/teacher", teacher)
+      .then((res) => {
+        dispatch({ type: "ADD_TEACHER", payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: "ERROR" });
+      });
+  };
+  const updatTeacher = async (teacher) => {
+    dispatch({ type: "PENDING" });
+    await axios
+      .put(`http://localhost:3000/teachers/${teacher.id}`, teacher)
+      .then((res) => {
+        dispatch({ type: "UPDATE_TEACHER", payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: "ERROR" });
+      });
+  };
+  const deletTeacher = async (id) => {
+    dispatch({ type: "PENDING" });
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this teacher?"
+    );
+    if (confirmDelete) {
+      await axios
+        .delete(`http://localhost:3000/teachers/${id}`)
+        .then(() => {
+          dispatch({ type: "DELETE_TEACHER", payload: id });
+        })
+        .catch((err) => {
+          dispatch({ type: "ERROR" });
+        });
+    } else {
+      window.alert("Deleting canceled!!!");
+    }
+    getTeachers();
+  };
+  
   const filter = (e) => {
     setPage(1);
     setFilterValue(e.target.value);

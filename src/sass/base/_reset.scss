@@ -63,11 +63,16 @@ select {
 
 ::-webkit-scrollbar-thumb {
   background-color: #5b5be294;
-  border-radius: 500px;
 }
 
 @media(max-width: 420px) {
   ::-webkit-scrollbar {
     width: 5px;
+  }
+}
+
+.MuiBox-root {
+  ::-webkit-scrollbar {
+    display: none;
   }
 }

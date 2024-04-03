@@ -4,38 +4,48 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import { AuthProvider } from "./hooks/useAuth";
 import Login from "./pages/Login";
-import Header from "./components/Header/Header";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedComp from "./components/ProtectedComp/ProtectedComp";
+import { GlobalProvider } from "./state/state-managment";
+import Teachers from "./pages/Teachers";
+
 const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <div>
-          {location.href !== "http://localhost:5173/login" ? <Header /> : null}
-          <Routes>
-            <Route path="/" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/home"
-              element={
-                <ProtectedComp>
-                  <Home />
-                </ProtectedComp>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedComp>
-                  <Profile />
-                </ProtectedComp>
-              }
-            />
-          </Routes>
-        </div>
+        <GlobalProvider>
+          <div>
+            <Routes>
+              <Route path="/" element={<SignUp />} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/home"
+                element={
+                  <ProtectedComp>
+                    <Home />
+                  </ProtectedComp>
+                }
+              />
+              <Route
+                path="/teachers"
+                element={
+                  <ProtectedComp>
+                    <Teachers />
+                  </ProtectedComp>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedComp>
+                    <Profile />
+                  </ProtectedComp>
+                }
+              />
+            </Routes>
+          </div>
+        </GlobalProvider>
       </AuthProvider>
       <ToastContainer
         position="top-center"

@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import StudentsDashboard from "../components/MuiConponents/StudentsDashboard";
+import TeachersDashboard from "../components/MuiConponents/TeachersDashboard";
 const Home = () => {
   const { userFromServer } = useAuth();
   if (
@@ -11,7 +11,7 @@ const Home = () => {
   ) {
     return (
       <>
-        <StudentsDashboard />
+        <TeachersDashboard />
       </>
     );
   } else if (

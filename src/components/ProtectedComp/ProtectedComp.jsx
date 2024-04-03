@@ -14,7 +14,6 @@ const ProtectedComp = ({ children }) => {
     return <div>{children}</div>;
   } else {
     return <Navigate to="/" />;
-    // return null;
   }
 };
 
