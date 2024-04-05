@@ -48,7 +48,7 @@ export default function Orders() {
         closeModal={closeModal}
         isModalOpen={isModalOpen}
       />
-      <Table size="small">
+      <Table size="small" sx={{ marginTop: "30px" }}>
         <TableHead>
           <TableRow>
             <TableCell>Firstname</TableCell>
@@ -63,12 +63,39 @@ export default function Orders() {
               <TableCell>{std.firstname}</TableCell>
               <TableCell>{std.lastname}</TableCell>
               <TableCell>{std.group}</TableCell>
-              <TableCell>
-                <button className="edit" onClick={() => openModal(std)}>
+              <TableCell
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              >
+                <button
+                  style={{
+                    border: "none",
+                    borderRadius: "5px",
+                    background: "#eaeaff",
+                    padding: "5px",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "5px",
+                  }}
+                  className="edit"
+                  onClick={() => openModal(std)}
+                >
                   Edit
                   <img src={editLogo} alt="" />
                 </button>
                 <button
+                  style={{
+                    border: "none",
+                    borderRadius: "5px",
+                    background: "#eaeaff",
+                    padding: "5px",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "5px",
+                  }}
                   className="delete"
                   onClick={() => deleteStudent(std.id)}
                 >

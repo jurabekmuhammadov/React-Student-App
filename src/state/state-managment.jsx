@@ -206,7 +206,7 @@ export const GlobalProvider = ({ children }) => {
     }
     getTeachers();
   };
-  
+
   const filter = (e) => {
     setPage(1);
     setFilterValue(e.target.value);
@@ -250,6 +250,10 @@ export const GlobalProvider = ({ children }) => {
         addStudent,
         updateStudent,
         deleteStudent,
+        getTeachers,
+        adTeacher,
+        updatTeacher,
+        deletTeacher,
         handlePage,
         multiplePages,
         page,

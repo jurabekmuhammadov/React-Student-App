@@ -19,7 +19,8 @@ const Modal = ({ selectedStudent, isModalOpen, closeModal }) => {
     }
   }, [selectedStudent]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (student.id) {
       updateStudent(student);
     } else {

@@ -11,7 +11,7 @@ const ProtectedComp = ({ children }) => {
     userFromServer.isSignedUp === true &&
     userFromServer.isLoggedIn === true
   ) {
-    return <div>{children}</div>;
+    return <div style={{ width: "100%", height: "100%" }}>{children}</div>;
   } else {
     return <Navigate to="/" />;
   }

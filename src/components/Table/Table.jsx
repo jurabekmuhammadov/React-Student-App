@@ -12,6 +12,7 @@ const Table = ({ openModal }) => {
     getStudents();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <table id="student-list">
       <tr className="titles">

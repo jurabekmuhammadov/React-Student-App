@@ -57,6 +57,11 @@ select {
   font: inherit;
 }
 
+#root {
+  height: 100vh !important;
+  width: 100vw !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

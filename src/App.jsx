@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import { AuthProvider } from "./hooks/useAuth";
@@ -8,43 +7,41 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedComp from "./components/ProtectedComp/ProtectedComp";
 import { GlobalProvider } from "./state/state-managment";
-import Teachers from "./pages/Teachers";
+import AntSidebar from "./components/AntComponents/AntDashboard";
 
 const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
         <GlobalProvider>
-          <div>
-            <Routes>
-              <Route path="/" element={<SignUp />} />
-              <Route path="/login" element={<Login />} />
-              <Route
-                path="/home"
-                element={
-                  <ProtectedComp>
-                    <Home />
-                  </ProtectedComp>
-                }
-              />
-              <Route
-                path="/teachers"
-                element={
-                  <ProtectedComp>
-                    <Teachers />
-                  </ProtectedComp>
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedComp>
-                    <Profile />
-                  </ProtectedComp>
-                }
-              />
-            </Routes>
-          </div>
+          <Routes>
+            <Route path="/" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/home"
+              element={
+                <ProtectedComp>
+                  <AntSidebar title={"Students"} />
+                </ProtectedComp>
+              }
+            />
+            <Route
+              path="/teachers"
+              element={
+                <ProtectedComp>
+                  <AntSidebar title={"Teachers"} />
+                </ProtectedComp>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedComp>
+                  <Profile />
+                </ProtectedComp>
+              }
+            />
+          </Routes>
         </GlobalProvider>
       </AuthProvider>
       <ToastContainer
