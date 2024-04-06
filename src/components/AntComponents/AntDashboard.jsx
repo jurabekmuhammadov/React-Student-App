@@ -5,9 +5,9 @@ import "../../ant.scss";
 import { Link, NavLink } from "react-router-dom";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
-import Orders from "../MuiConponents/Orders";
 import { useAuth } from "../../hooks/useAuth";
 import PropTypes from "prop-types";
+import TableList from "../Table/TableList";
 
 const { Header, Sider, Content } = Layout;
 
@@ -82,7 +82,7 @@ const AntSidebar = ({ title }) => {
           }}
         >
           <h1 style={{ marginBottom: "20px" }}>{title}</h1>
-          <Orders />
+          <TableList />
         </Content>
       </Layout>
     </Layout>

@@ -1,10 +1,10 @@
 {
   "students": [
     {
-      "id": "1",
       "firstname": "Jurabek",
       "lastname": "Muhammadov",
-      "group": "React N45"
+      "group": "React N45",
+      "id": "1"
     },
     {
       "id": "2",
@@ -188,105 +188,71 @@
       "firstname": "Alice",
       "lastname": "Clark",
       "level": "senior",
-      "groups": [
-        "React N45",
-        "Vue N17"
-      ]
+      "groups": ["React N45", "Vue N17"]
     },
     {
       "id": "2",
       "firstname": "Bob",
       "lastname": "Davis",
       "level": "middle",
-      "groups": [
-        "Angular N32",
-        "React N45"
-      ]
+      "groups": ["Angular N32", "React N45"]
     },
     {
       "id": "3",
       "firstname": "Charlie",
       "lastname": "Evans",
       "level": "junior",
-      "groups": [
-        "Vue N17"
-      ]
+      "groups": ["Vue N17"]
     },
     {
       "id": "4",
       "firstname": "David",
       "lastname": "Fisher",
       "level": "senior",
-      "groups": [
-        "Angular N32"
-      ]
+      "groups": ["Angular N32"]
     },
     {
       "id": "5",
       "firstname": "Emma",
       "lastname": "Garcia",
       "level": "middle",
-      "groups": [
-        "React N45",
-        "Angular N32"
-      ]
+      "groups": ["React N45", "Angular N32"]
     },
     {
       "id": "6",
       "firstname": "Frank",
       "lastname": "Harris",
       "level": "junior",
-      "groups": [
-        "Angular N32"
-      ]
+      "groups": ["Angular N32"]
     },
     {
       "id": "7",
       "firstname": "Grace",
       "lastname": "Irwin",
       "level": "senior",
-      "groups": [
-        "Vue N17",
-        "Angular N32",
-        "React N45"
-      ]
+      "groups": ["Vue N17", "Angular N32", "React N45"]
     },
     {
       "id": "8",
       "firstname": "Henry",
       "lastname": "Jackson",
       "level": "middle",
-      "groups": [
-        "React N45"
-      ]
+      "groups": ["React N45"]
     },
     {
       "id": "9",
       "firstname": "Ivy",
       "lastname": "King",
       "level": "junior",
-      "groups": [
-        "Angular N32",
-        "React N45",
-        "Vue N17"
-      ]
+      "groups": ["Angular N32", "React N45", "Vue N17"]
     },
     {
       "id": "10",
       "firstname": "Jack",
       "lastname": "Lee",
       "level": "senior",
-      "groups": [
-        "Vue N17",
-        "Angular N32"
-      ]
+      "groups": ["Vue N17", "Angular N32"]
     }
   ],
-  "user": {
-    "username": "harry",
-    "password": "kane",
-    "avatar": "/src/assets/avatar.webp",
-    "isSignedUp": true,
-    "isLoggedIn": true
-  }
+  "user": {}
 }

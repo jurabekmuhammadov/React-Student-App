@@ -117,7 +117,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     getUserData();
-  }, [userFromServer]);
+  }, []);
 
   useEffect(() => {
     addUser();
@@ -132,7 +132,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         userFromServer,
         submitEditChanges,
-        notifyUpdatedDetails
+        notifyUpdatedDetails,
       }}
     >
       {children}

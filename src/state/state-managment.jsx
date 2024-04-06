@@ -164,7 +164,6 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: "ERROR" });
       });
   };
-
   const adTeacher = async (teacher) => {
     dispatch({ type: "PENDING" });
     await axios

@@ -2,6 +2,10 @@
   height: 100% !important;
   width: 100% !important;
 }
+.ant-layout-content {
+  position: static;
+  // overflow: hidden;
+}
 
 .ant-menu {
   margin-top: 20px;
