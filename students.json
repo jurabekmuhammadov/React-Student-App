@@ -254,5 +254,11 @@
       "groups": ["Vue N17", "Angular N32"]
     }
   ],
-  "user": {}
+  "user": {
+    "username": "harry",
+    "password": "kane",
+    "avatar": "/src/assets/avatar.webp",
+    "isSignedUp": true,
+    "isLoggedIn": true
+  }
 }
