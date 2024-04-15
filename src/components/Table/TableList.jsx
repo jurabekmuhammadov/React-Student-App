@@ -1,23 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import { GlobalContext } from "../../state/state-managment";
+import React, { useEffect, useState } from "react";
+import { connect } from 'react-redux';
 import { Table, Button } from "antd";
 import deleteLogo from "../../assets/delete.svg";
 import editLogo from "../../assets/edit.svg";
 import Pagination from "../Pagination/Pagination";
 import Top from "../Top/Top";
 import Modal from "../Modal/Modal";
-import "antd/dist/reset.css";
-import "./table.scss";
+import PropTypes from "prop-types";
+import { fetchStudents, deleteStudent } from '../../../redux/actions';
 
-export default function TableList() {
-  const { displayedStudents, getStudents, deleteStudent } =
-    useContext(GlobalContext);
-
-  useEffect(() => {
-    getStudents();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+function TableList(props) {
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -69,7 +61,7 @@ export default function TableList() {
             <img src={editLogo} alt="" />
           </Button>
           <Button
-            onClick={() => deleteStudent(student.id)}
+            onClick={() => props.deleteStudent(student.id)}
             style={{
               background: "#eaeaff",
               border: "none",
@@ -85,6 +77,14 @@ export default function TableList() {
     },
   ];
 
+  useEffect(() => {
+    props.fetchStudents();
+  }, []);
+
+  if (props.loading) {
+    return <p>Loading students...</p>;
+  }
+
   return (
     <React.Fragment>
       <Top setIsModalOpen={setIsModalOpen} />
@@ -94,8 +94,22 @@ export default function TableList() {
         closeModal={closeModal}
         isModalOpen={isModalOpen}
       />
-      <Table dataSource={displayedStudents} columns={columns} />
+      <Table dataSource={props.students} columns={columns} />
       <Pagination />
     </React.Fragment>
   );
 }
+
+TableList.propTypes = {
+  fetchStudents: PropTypes.func.isRequired,
+  deleteStudent: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  students: PropTypes.array.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  loading: state.loading,
+  students: state.students,
+});
+
+export default connect(mapStateToProps, { fetchStudents, deleteStudent })(TableList);
