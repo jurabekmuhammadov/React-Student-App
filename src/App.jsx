@@ -5,7 +5,7 @@ import { AuthProvider } from "./hooks/useAuth";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ProtectedComp from "./components/ProtectedComp/ProtectedComp";
+// import ProtectedComp from "./components/ProtectedComp/ProtectedComp";
 import { GlobalProvider } from "./state/state-managment";
 import AntSidebar from "./components/AntComponents/AntDashboard";
 
@@ -20,25 +20,25 @@ const App = () => {
             <Route
               path="/home"
               element={
-                <ProtectedComp>
+                // <ProtectedComp>
                   <AntSidebar title={"Students"} />
-                </ProtectedComp>
+                /* </ProtectedComp> */
               }
             />
             <Route
               path="/teachers"
               element={
-                <ProtectedComp>
+                // <ProtectedComp>
                   <AntSidebar title={"Teachers"} />
-                </ProtectedComp>
+                // </ProtectedComp>
               }
             />
             <Route
               path="/profile"
               element={
-                <ProtectedComp>
+                // <ProtectedComp>
                   <Profile />
-                </ProtectedComp>
+                // </ProtectedComp>
               }
             />
           </Routes>

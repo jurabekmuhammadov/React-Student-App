@@ -1,26 +1,26 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import googleLogo from "../assets/google.svg";
 import appleLogo from "../assets/apple.svg";
 import authImg from "../assets/auth-img.png";
 const SignUp = () => {
-  const { signUp, userFromServer } = useAuth();
+  const { signUp } = useAuth();
   const [user, setUser] = useState({ username: "", password: "" });
   const handleSubmit = (e) => {
     e.preventDefault();
     signUp(user);
     setUser({ username: "", password: "" });
   };
-  if (
-    !userFromServer.username &&
-    !userFromServer.password &&
-    !userFromServer.isSignedUp &&
-    !userFromServer.isLoggedIn
-  ) {
+  // if (
+  //   !userFromServer.username &&
+  //   !userFromServer.password &&
+  //   !userFromServer.isSignedUp &&
+  //   !userFromServer.isLoggedIn
+  // ) {
     return (
       <div id="sign-up">
-        <div className="container signup__container">
+        <div className="container signup__container r">
           <div className="left">
             <form onSubmit={handleSubmit}>
               <h1>Get Started Now</h1>
@@ -99,16 +99,16 @@ const SignUp = () => {
         </div>
       </div>
     );
-  } else if (
-    userFromServer.username &&
-    userFromServer.password &&
-    !userFromServer.isSignedUp &&
-    userFromServer.isLoggedIn
-  ) {
-    return <Navigate to="/login" />;
-  } else {
-    return <Navigate to="/home" />;
-  }
+  // } else if (
+  //   userFromServer.username &&
+  //   userFromServer.password &&
+  //   !userFromServer.isSignedUp &&
+  //   userFromServer.isLoggedIn
+  // ) {
+  //   return <Navigate to="/login" />;
+  // } else {
+  //   return <Navigate to="/home" />;
+  // }
 };
 
 export default SignUp;
